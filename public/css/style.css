@@ -1,0 +1,197 @@
+/*
+ * JK INNOVATION 발주관리 시스템 스타일시트
+ * 칸딘스키 색채 이론 기반 7가지 감정 팔레트 적용
+ * 환희(Joy)    : #FFD447 (밝은 노란색)
+ * 희열(Elation): #FF6F61 (따뜻한 코랄)
+ * 감동(Awe)    : #8E44AD (보라색)
+ * 평온(Calm)   : #3498DB (푸른색)
+ * 신비(Mystic) : #2C3E50 (짙은 남청)
+ * 활력(Vital)  : #27AE60 (생기있는 초록)
+ * 몽환(Dream)  : #F7CAC9 (파스텔 핑크)
+ */
+
+:root {
+    --joy: #FFD447;
+    --elation: #FF6F61;
+    --awe: #8E44AD;
+    --calm: #3498DB;
+    --mystic: #2C3E50;
+    --vital: #27AE60;
+    --dream: #F7CAC9;
+    --text-dark: #1F2D3D;
+    --text-light: #FAFAFA;
+    --background: #F4F6F8;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans KR', 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, rgba(255,212,71,0.15), rgba(52,152,219,0.15));
+    color: var(--text-dark);
+    min-height: 100vh;
+}
+
+a {
+    color: var(--calm);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.header {
+    background: radial-gradient(circle at top left, var(--joy), var(--elation));
+    padding: 2rem 1.5rem;
+    color: var(--text-light);
+    text-align: center;
+    box-shadow: var(--card-shadow);
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: 0.08rem;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+.card {
+    background: var(--text-light);
+    border-radius: 1.2rem;
+    padding: 1.5rem;
+    position: relative;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -40%;
+    width: 160%;
+    height: 160%;
+    opacity: 0.12;
+    transform: rotate(25deg);
+    background: linear-gradient(135deg, var(--awe), var(--dream));
+}
+
+.card h2 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.1rem;
+    color: var(--mystic);
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.card .value {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--vital);
+}
+
+.table-container {
+    background: var(--text-light);
+    margin: 1.5rem 2rem;
+    border-radius: 1.2rem;
+    box-shadow: var(--card-shadow);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+table thead {
+    background: var(--mystic);
+    color: var(--text-light);
+}
+
+table th, table td {
+    padding: 0.85rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(44, 62, 80, 0.08);
+}
+
+table tbody tr:nth-child(even) {
+    background: rgba(247, 202, 201, 0.25);
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(39, 174, 96, 0.12);
+    color: var(--vital);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.4rem;
+    border-radius: 0.9rem;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--calm), var(--awe));
+    color: var(--text-light);
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(52, 152, 219, 0.25);
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 1.5rem 1rem;
+    }
+    .header h1 {
+        font-size: 1.6rem;
+    }
+    .dashboard {
+        padding: 1.5rem 1rem;
+        grid-template-columns: 1fr;
+    }
+    .table-container {
+        margin: 1rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, rgba(44,62,80,0.9), rgba(142,68,173,0.7));
+        color: var(--text-light);
+    }
+    .card, .table-container {
+        background: rgba(255, 255, 255, 0.08);
+    }
+    table thead {
+        background: rgba(255,255,255,0.12);
+        color: var(--text-light);
+    }
+    table tbody tr:nth-child(even) {
+        background: rgba(52, 152, 219, 0.15);
+    }
+}

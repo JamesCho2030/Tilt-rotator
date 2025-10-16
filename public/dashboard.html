@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JK INNOVATION 발주관리 대시보드</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <h1>실시간 발주 &amp; 재고 현황</h1>
+        <p>JK INNOVATION · 경남 양산시 물금읍 증산역로 135 퍼스트 조양 401호 · 055-321-4055</p>
+        <a href="/login.html" class="button" style="margin-top:1rem;">로그아웃</a>
+    </header>
+
+    <section class="dashboard">
+        <article class="card" data-kpi="pending_orders">
+            <h2>승인 대기 발주</h2>
+            <div class="value">0</div>
+        </article>
+        <article class="card" data-kpi="total_suppliers">
+            <h2>등록된 공급사</h2>
+            <div class="value">0</div>
+        </article>
+        <article class="card" data-kpi="low_stock_products">
+            <h2>안전재고 이하</h2>
+            <div class="value">0</div>
+        </article>
+        <article class="card" data-kpi="monthly_spend">
+            <h2>30일 누적 발주금액</h2>
+            <div class="value">0</div>
+        </article>
+    </section>
+
+    <section class="table-container">
+        <h2 style="padding:1.5rem; margin:0;">최근 발주 트렌드</h2>
+        <div id="trend-chart" style="display:flex; gap:1rem; padding:0 1.5rem 1.5rem 1.5rem; align-items:flex-end;"></div>
+    </section>
+
+    <section class="table-container">
+        <h2 style="padding:1.5rem; margin:0;">재고 현황 상위 10</h2>
+        <table id="inventory-table">
+            <thead>
+                <tr>
+                    <th>제품명</th>
+                    <th>현재 재고</th>
+                    <th>안전재고</th>
+                    <th>상태</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </section>
+
+    <script src="/js/app.js"></script>
+    <script src="/js/dashboard.js"></script>
+    <script src="/js/inventory.js"></script>
+</body>
+</html>
